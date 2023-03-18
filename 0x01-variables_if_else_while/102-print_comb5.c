@@ -8,22 +8,25 @@
  */
 int main(void)
 {
-	int n;
-	int i = 0;
+	int n, i;
 
 	for (n = 0 ; n < 100 ; n++)
 	{
-		putchar(n / 10 + '0');
-		putchar(i + '0');
-		if (n < 99)
+		for (i = 0 ; i < 100 ; i++)
 		{
-			putchar(',');
-			putchar(32);
-		}
-		i++;
-		if (i > 9)
-		{
-			i = 0;
+			if (n < i)
+			{
+				putchar((n / 10) + 48);
+				putchar((n % 10) + 48);
+				putchar((' '));
+				putchar((i / 10) + 48);
+				putchar((i % 10) + 48);
+				if (n != 98 || i != 99)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
 		}
 	}
 	putchar('\n');
